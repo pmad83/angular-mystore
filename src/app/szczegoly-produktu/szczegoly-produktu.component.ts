@@ -18,7 +18,7 @@ export class SzczegolyProduktuComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
 
-    //Znajdż odpowiadający produkt wg id
+    //Znajdź odpowiadający produkt wg id
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 }
