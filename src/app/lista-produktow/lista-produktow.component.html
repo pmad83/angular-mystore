@@ -7,8 +7,9 @@
     </a>
   </h3>
   <p *ngIf="product.description">Opis: {{ product.description }}</p>
+  <p>W magazynie: {{ product.inStock }}</p>
   <button (click)='udostepnij()'>Udostępnij</button>
-  <app-alarm-dostepnosci [product]='product'></app-alarm-dostepnosci>
+  <app-alarm-dostepnosci [product]='product' (notify)='powiadomienie()'></app-alarm-dostepnosci>
 </div>
 
 <!-- 

@@ -13,6 +13,10 @@ export class ListaProduktowComponent {
   udostepnij() {
     window.alert('Produkt został udostępniony!');
   }
+
+  powiadomienie() {
+    window.alert('Zostaniesz powiadomiony, kiedy produkt będzie dostępny');
+  }
 }
 
 

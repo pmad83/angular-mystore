@@ -1,4 +1,3 @@
-<p>alarm-dostepnosci works!</p>
-<p *ngIf="product && product.inStock > 0">
-  <button>Powiadom mnie o dostępności</button>
+<p *ngIf="product && product.inStock == 0">
+  <button (click)='notify.emit()'>Powiadom mnie o dostępności</button>
 </p>
