@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
 
@@ -21,5 +21,4 @@ export class SzczegolyProduktuComponent implements OnInit {
     //Znajdż odpowiadający produkt wg id
     this.product = products.find(product => product.id === productIdFromRoute);
   }
-
 }

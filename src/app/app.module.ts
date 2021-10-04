@@ -9,6 +9,12 @@ import { ListaProduktowComponent } from './lista-produktow/lista-produktow.compo
 import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci.component';
 import { SzczegolyProduktuComponent } from './szczegoly-produktu/szczegoly-produktu.component';
 
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
+import localePlExtra from '@angular/common/locales/extra/pl';
+registerLocaleData(localePl, localePlExtra);
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,10 +33,20 @@ import { SzczegolyProduktuComponent } from './szczegoly-produktu/szczegoly-produ
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  providers: [
+    {
+     provide: LOCALE_ID,
+     useValue: 'pl-PL'
+    },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'PLN'
+    }    
+   ]
 })
-export class AppModule { }
 
+export class AppModule { }
 
 /*
 Copyright Google LLC. All Rights Reserved.
