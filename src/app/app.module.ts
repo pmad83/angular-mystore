@@ -5,20 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ListaProduktowComponent } from './lista-produktow/lista-produktow.component';
+import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', component: ListaProduktowComponent },
     ])
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent
+    ListaProduktowComponent,
+    AlarmDostepnosciComponent,
   ],
   bootstrap: [
     AppComponent
