@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ListaProduktowComponent } from './lista-produktow/lista-produktow.component';
 import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci.component';
+import { SzczegolyProduktuComponent } from './szczegoly-produktu/szczegoly-produktu.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ListaProduktowComponent },
+      { path: 'products/:productId', component: SzczegolyProduktuComponent },
     ])
   ],
   declarations: [
@@ -21,6 +23,7 @@ import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci
     TopBarComponent,
     ListaProduktowComponent,
     AlarmDostepnosciComponent,
+    SzczegolyProduktuComponent,
   ],
   bootstrap: [
     AppComponent
