@@ -1,6 +1,7 @@
-import { Component, DEFAULT_CURRENCY_CODE, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
+import { KoszykService } from '../koszyk.service';
 
 @Component({
   selector: 'app-szczegoly-produktu',
@@ -11,7 +12,7 @@ export class SzczegolyProduktuComponent implements OnInit {
 
   product: Product | undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private koszyk: KoszykService) {}
 
   ngOnInit() {
     //Pobierz id produktu z adresu
@@ -20,5 +21,10 @@ export class SzczegolyProduktuComponent implements OnInit {
 
     //Znajdź odpowiadający produkt wg id
     this.product = products.find(product => product.id === productIdFromRoute);
+  }
+
+  dodajDoKoszyka(product: Product) {
+    this.koszyk.dodajDoKoszyka(product);
+    window.alert(product.name + ' został dodany do Twojego koszyka');
   }
 }
