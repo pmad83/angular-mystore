@@ -13,4 +13,11 @@
   <p>Łączna wartość: {{total | currency}}</p>
 </div>
 
-<a routerLink='/cennik'>Cennik dostaw</a>
+<div>
+  <a routerLink='/cennik'>Cennik dostaw</a>
+  <br/><br/>
+</div>
+
+<div *ngIf='items.length > 0'>
+  <a routerLink='/zloz' class='button'>Złóż zamówienie</a>
+</div>

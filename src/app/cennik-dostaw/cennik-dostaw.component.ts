@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { KoszykService } from '../koszyk.service';
 
 @Component({
   selector: 'app-cennik-dostaw',
   templateUrl: './cennik-dostaw.component.html',
   styleUrls: ['./cennik-dostaw.component.css']
 })
-export class CennikDostawComponent implements OnInit {
+export class CennikDostawComponent {
 
-  constructor() { }
+  cennik = this.koszyk.pobierzOplaty();
 
-  ngOnInit() {
-  }
+  constructor(private koszyk: KoszykService) { }
 
 }

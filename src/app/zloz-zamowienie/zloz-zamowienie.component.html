@@ -1,0 +1,33 @@
+<h2>Złóż zamówienie</h2>
+
+<form [formGroup]='checkoutForm' (ngSubmit)='potwierdzZamowienie()'>
+  <div>
+  <label for='name'>
+    Imię i nazwisko
+  </label>
+  <input id='name' type='text' formControlName='name'>
+  </div>
+
+  <div>
+  <label for='address'>
+    Adres
+  </label>
+  <input id='address' type='text' formControlName='address'>
+  </div>
+
+  <div>
+  <label for='phone'>
+    Telefon
+  </label>
+  <input id='phone' type='text' formControlName='phone'>
+  </div>
+
+  <div>
+  <label for='email'>
+    E-mail
+  </label>
+  <input id='email' type='text' formControlName='email'>
+  </div>
+
+  <button class='button' type='submit'>Potwierdź</button>
+</form>

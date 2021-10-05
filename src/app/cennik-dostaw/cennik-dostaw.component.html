@@ -1,0 +1,6 @@
+<h2>Cennik dostaw</h2>
+
+<div class='shipping-item' *ngFor='let pozycja of cennik | async'>
+<span>{{ pozycja.type }}</span>
+<span>{{ pozycja.price | currency }}</span>
+</div>

@@ -10,6 +10,7 @@ import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci
 import { SzczegolyProduktuComponent } from './szczegoly-produktu/szczegoly-produktu.component';
 import { KoszykComponent } from './koszyk/koszyk.component';
 import { CennikDostawComponent } from './cennik-dostaw/cennik-dostaw.component';
+import { ZlozZamowienieComponent } from './zloz-zamowienie/zloz-zamowienie.component';
 
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -28,7 +29,8 @@ registerLocaleData(localePl, localePlExtra);
       { path: 'produkt/:idProduktu', component: SzczegolyProduktuComponent },
       { path: 'koszyk', component: KoszykComponent },
       { path: 'cennik', component: CennikDostawComponent },
-    ])
+      { path: 'zloz', component: ZlozZamowienieComponent },
+    ]),
   ],
   declarations: [
     AppComponent,
@@ -38,20 +40,18 @@ registerLocaleData(localePl, localePlExtra);
     SzczegolyProduktuComponent,
     KoszykComponent,
     CennikDostawComponent,
+    ZlozZamowienieComponent,
   ],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
   providers: [
     {
-     provide: LOCALE_ID,
-     useValue: 'pl-PL'
+      provide: LOCALE_ID,
+      useValue: 'pl-PL',
     },
     {
       provide: DEFAULT_CURRENCY_CODE,
-      useValue: 'PLN'
-    }    
-   ]
+      useValue: 'PLN',
+    },
+  ],
 })
-
-export class AppModule { }
+export class AppModule {}
