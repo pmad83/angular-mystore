@@ -8,6 +8,7 @@ import { products } from '../products';
   styleUrls: ['./lista-produktow.component.css']
 })
 export class ListaProduktowComponent {
+  
   products = products;
 
   udostepnij() {

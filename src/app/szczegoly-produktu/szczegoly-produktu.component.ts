@@ -23,7 +23,7 @@ export class SzczegolyProduktuComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
-  dodajDoKoszyka(product: Product) {
+  dodaj(product: Product) {
     this.koszyk.dodajDoKoszyka(product);
     window.alert(product.name + ' został dodany do Twojego koszyka');
   }

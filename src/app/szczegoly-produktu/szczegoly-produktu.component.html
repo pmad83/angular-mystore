@@ -1,10 +1,10 @@
-<h2>
-  Szczegóły produktu
-</h2>
+<h2>Szczegóły produktu</h2>
+
 <div *ngIf='product'>
   <h3>{{ product.name }} {{ product.volume | number }}l {{ product.alcohol }}%</h3>
   <h4>{{ product.price | currency }}</h4>
   <h5>Dostępność: {{ product.inStock }} sztuk</h5>
   <p>{{ product.description }}</p>
-  <a href='./'>Wstecz</a>
+  <button (click)='dodaj(product)'>Kup</button>
+  <br/><br/><a href='./'>Wstecz</a>
 </div>

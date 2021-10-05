@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ListaProduktowComponent } from './lista-produktow/lista-produktow.component';
 import { AlarmDostepnosciComponent } from './alarm-dostepnosci/alarm-dostepnosci.component';
 import { SzczegolyProduktuComponent } from './szczegoly-produktu/szczegoly-produktu.component';
+import { KoszykComponent } from './koszyk/koszyk.component';
 
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -22,6 +23,7 @@ registerLocaleData(localePl, localePlExtra);
     RouterModule.forRoot([
       { path: '', component: ListaProduktowComponent },
       { path: 'products/:productId', component: SzczegolyProduktuComponent },
+      { path: 'koszyk', component: KoszykComponent },
     ])
   ],
   declarations: [
@@ -47,9 +49,3 @@ registerLocaleData(localePl, localePlExtra);
 })
 
 export class AppModule { }
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
