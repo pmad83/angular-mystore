@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { Product, products } from '../products';
 import { KoszykService } from '../koszyk.service';
 
@@ -22,9 +23,10 @@ export class SzczegolyProduktuComponent implements OnInit {
     //Znajdź odpowiadający produkt wg id
     this.product = products.find(product => product.id === productIdFromRoute);
   }
-
+  
   dodaj(product: Product) {
     this.koszyk.dodajDoKoszyka(product);
     window.alert(product.name + ' został dodany do Twojego koszyka');
   }
+
 }

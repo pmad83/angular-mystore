@@ -18,7 +18,7 @@ export class KoszykService {
 
   usunKoszyk() {
     this.items = [];
-    return this.dajKoszyk();
+    return this.items;
   }
 
   constructor() { }

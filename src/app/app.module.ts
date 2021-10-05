@@ -32,6 +32,7 @@ registerLocaleData(localePl, localePlExtra);
     ListaProduktowComponent,
     AlarmDostepnosciComponent,
     SzczegolyProduktuComponent,
+    KoszykComponent,
   ],
   bootstrap: [
     AppComponent

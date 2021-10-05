@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { KoszykService } from '../koszyk.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { KoszykService } from '../koszyk.service';
 export class KoszykComponent {
 
   items = this.koszyk.dajKoszyk();
-
+  total = this.items.reduce((total, current) => total + current.price, 0);
+  
   constructor(private koszyk: KoszykService) { }
 
 }
