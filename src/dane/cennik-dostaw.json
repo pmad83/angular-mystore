@@ -1,0 +1,14 @@
+[
+  {
+    "type": "Kurier DPD",
+    "price": 12.99
+  },
+  {
+    "type": "Paczkomat InPost",
+    "price": 8.99
+  },
+  {
+    "type": "Paczka w Żabce",
+    "price": 7.99
+  }
+]

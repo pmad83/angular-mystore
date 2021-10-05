@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Product } from './products';
 
 @Injectable({
@@ -21,6 +23,10 @@ export class KoszykService {
     return this.items;
   }
 
-  constructor() { }
+  pobierzOplaty() {
+    return this.http.get<{type: string, price: number}[]>('/dane/cennik-dostaw.json');
+  }
+
+  constructor(private http: HttpClient) { }
 
 }
