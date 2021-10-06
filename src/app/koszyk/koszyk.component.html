@@ -16,9 +16,8 @@
 <div *ngIf='items.length > 0'>
   <p>Łączna wartość: {{total | currency}}</p>
   <h4>Dostawa</h4>
+  <button (click)='openDialog()'>Dostawa</button>
 </div>
-
-
 
 <div *ngIf='items.length > 0'>
   <p>Koszt dostawy: {{0 | currency}}</p>
