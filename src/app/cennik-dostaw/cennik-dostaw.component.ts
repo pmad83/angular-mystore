@@ -1,29 +1,29 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { KoszykService } from '../koszyk.service';
 
-export interface DialogData {
-  animal: string;
-  name: string;
+export interface Dostawca {
+  id: number;
+  type: string;
+  price: number;
 }
 
 @Component({
   selector: 'app-cennik-dostaw',
   templateUrl: './cennik-dostaw.component.html',
- // styleUrls: ['./cennik-dostaw.component.css']
+  styleUrls: ['./cennik-dostaw.component.css']
 })
 export class CennikDostawComponent {
 
   cennik = this.koszyk.pobierzOplaty();
 
-  constructor(
-    private koszyk: KoszykService,
-    public dialogRef: MatDialogRef<CennikDostawComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  constructor(private koszyk: KoszykService,
+              public dialogRef: MatDialogRef<CennikDostawComponent>,
+              @Inject(MAT_DIALOG_DATA) public dostawca: Dostawca
     ) { }
 
-  onNoClick(): void {
+  anuluj(): void {
     this.dialogRef.close();
   }
 

@@ -1,11 +1,11 @@
-<h2 mat-dialog-title>Cennik dostaw</h2>
+<h2>Wybierz formę dostawy</h2>
 
-<div mat-dialog-content class='shipping-item' *ngFor='let pozycja of cennik | async'>
-  <span>{{ pozycja.type }}</span>
+<div class='shipping-item' *ngFor='let pozycja of cennik | async'>
+  <button [mat-dialog-close]="pozycja">{{ pozycja.type }}</button>
+  <span>{{ pozycja.id }}</span>
   <span>{{ pozycja.price | currency }}</span>
 </div>
 
-<div mat-dialog-actions>
-  <button mat-button>Wybierz</button>
-  <button mat-button (click)="onNoClick()" cdkFocusInitial>Anuluj</button>
+<div>
+  <button (click)="anuluj()">Anuluj</button>
 </div>

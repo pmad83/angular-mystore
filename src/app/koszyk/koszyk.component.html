@@ -14,17 +14,12 @@
 </div>
 
 <div *ngIf='items.length > 0'>
-  <p>Łączna wartość: {{total | currency}}</p>
+  <p>Łączna wartość: {{ total | currency}}</p>
   <h4>Dostawa</h4>
-  <button (click)='openDialog()'>Dostawa</button>
-</div>
-
-<div *ngIf='items.length > 0'>
-  <p>Koszt dostawy: {{0 | currency}}</p>
-  <p>Do zapłaty: {{valueWithDelivery | currency}}</p>
-</div>
-
-<div *ngIf='items.length > 0'>
+  <p>Dostawca: {{ type }}</p>
+  <p>Koszt dostawy: {{ deliveryCost | currency}}</p>
+  <button (click)='wybierzDostawce()'>Wybierz/zmień formę dostawy</button>
+  <h4>Podsumowanie</h4>
+  <p>Do zapłaty: {{ valueWithDelivery | currency}}</p>
   <a routerLink='/zloz' class='button'>Złóż zamówienie</a>
 </div>
-

@@ -24,7 +24,7 @@ export class KoszykService {
   }
 
   pobierzOplaty() {
-    return this.http.get<{type: string, price: number}[]>('/assets/cennik-dostaw.json');
+    return this.http.get<{id: number, type: string, price: number}[]>('/assets/cennik-dostaw.json');
   }
 
   constructor(private http: HttpClient) { }

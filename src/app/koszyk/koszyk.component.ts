@@ -1,43 +1,41 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { KoszykService } from '../koszyk.service';
 import { CennikDostawComponent } from '../cennik-dostaw/cennik-dostaw.component';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
-
 @Component({
   selector: 'app-koszyk',
   templateUrl: './koszyk.component.html',
-  //styleUrls: ['./koszyk.component.css'],
+  styleUrls: ['./koszyk.component.css'],
 })
 export class KoszykComponent {
 
-  animal!: string;
-  name!: string;
+  id!: number;
+  type!: string;
+  deliveryCost!: number;
 
   items = this.koszyk.dajKoszyk();
   total = this.items.reduce((total, current) => total + current.price, 0);
-  deliveryCost = 0;
   valueWithDelivery = this.total + this.deliveryCost;
 
-  constructor(
-              public dialog: MatDialog,
-              private koszyk: KoszykService
-              ) {}
+  constructor(public dialog: MatDialog, private koszyk: KoszykService) {}
 
-  openDialog(): void {
+  wybierzDostawce(): void {
     const dialogRef = this.dialog.open(CennikDostawComponent, {
-      width: '350px',
-      data: {name: this.name, animal: this.animal}
+      width: '460px',
+      height: '320px',
+      data: {id: this.id, type: this.type, price: this.deliveryCost}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
+    dialogRef.afterClosed().subscribe(dostawca => {
+      this.id = dostawca.id;
+      this.type = dostawca.type;
+      this.deliveryCost = dostawca.price;
+      this.valueWithDelivery = this.total + this.deliveryCost;
+
+      console.log('Okno wyboru formy dostawy zostało zamknięte ' + dostawca.type);
+
     });
   }
 
