@@ -4,6 +4,10 @@
   <p>Twój koszyk jest pusty</p>
 </div>
 
+<div *ngIf='items.length > 0'>
+  <h4>Lista produktów</h4>
+</div>
+
 <div class='cart-item' *ngFor='let item of items'>
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
@@ -11,13 +15,20 @@
 
 <div *ngIf='items.length > 0'>
   <p>Łączna wartość: {{total | currency}}</p>
+  <h4>Dostawa</h4>
 </div>
 
-<div>
-  <a routerLink='/cennik'>Cennik dostaw</a>
-  <br/><br/>
+
+
+<div *ngIf='items.length > 0'>
+  <p>Koszt dostawy: {{0 | currency}}</p>
+  <p>Do zapłaty: {{valueWithDelivery | currency}}</p>
 </div>
 
 <div *ngIf='items.length > 0'>
   <a routerLink='/zloz' class='button'>Złóż zamówienie</a>
+</div>
+
+<div>
+  <br/><a routerLink='/cennik'>Cennik dostaw</a>
 </div>

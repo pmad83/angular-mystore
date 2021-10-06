@@ -10,6 +10,8 @@ import { KoszykService } from '../koszyk.service';
 export class KoszykComponent {
   items = this.koszyk.dajKoszyk();
   total = this.items.reduce((total, current) => total + current.price, 0);
+  deliveryCost = 0;
+  valueWithDelivery = this.total + this.deliveryCost;
 
   constructor(private koszyk: KoszykService) {}
 
