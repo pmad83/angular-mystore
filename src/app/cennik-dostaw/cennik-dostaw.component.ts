@@ -11,7 +11,7 @@ export interface DialogData {
 @Component({
   selector: 'app-cennik-dostaw',
   templateUrl: './cennik-dostaw.component.html',
-  styleUrls: ['./cennik-dostaw.component.css']
+ // styleUrls: ['./cennik-dostaw.component.css']
 })
 export class CennikDostawComponent {
 

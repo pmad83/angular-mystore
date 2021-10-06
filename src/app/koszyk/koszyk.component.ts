@@ -12,12 +12,12 @@ export interface DialogData {
 @Component({
   selector: 'app-koszyk',
   templateUrl: './koszyk.component.html',
-  styleUrls: ['./koszyk.component.css'],
+  //styleUrls: ['./koszyk.component.css'],
 })
 export class KoszykComponent {
 
-  //animal: string;
-  //name: string;
+  animal!: string;
+  name!: string;
 
   items = this.koszyk.dajKoszyk();
   total = this.items.reduce((total, current) => total + current.price, 0);
@@ -25,12 +25,13 @@ export class KoszykComponent {
   valueWithDelivery = this.total + this.deliveryCost;
 
   constructor(
-              //public dialog: MatDialog,
-              private koszyk: KoszykService) {}
+              public dialog: MatDialog,
+              private koszyk: KoszykService
+              ) {}
 
-  /*openDialog(): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(CennikDostawComponent, {
-      width: '250px',
+      width: '350px',
       data: {name: this.name, animal: this.animal}
     });
 
@@ -38,6 +39,6 @@ export class KoszykComponent {
       console.log('The dialog was closed');
       this.animal = result;
     });
-  }*/
+  }
 
 }

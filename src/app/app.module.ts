@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -24,14 +26,16 @@ registerLocaleData(localePl, localePlExtra);
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: ListaProduktowComponent },
       { path: 'produkt/:idProduktu', component: SzczegolyProduktuComponent },
       { path: 'koszyk', component: KoszykComponent },
-      { path: 'cennik', component: CennikDostawComponent },
       { path: 'zloz', component: ZlozZamowienieComponent },
     ]),
   ],
+  entryComponents: [CennikDostawComponent],
   declarations: [
     AppComponent,
     TopBarComponent,
