@@ -1,13 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { KoszykService } from '../koszyk.service';
-
-export interface Dostawca {
-  id: number;
-  type: string;
-  price: number;
-}
+import { KoszykService, Dostawca } from '../koszyk.service';
 
 @Component({
   selector: 'app-cennik-dostaw',

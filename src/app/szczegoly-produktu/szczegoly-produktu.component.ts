@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Product, products } from '../products';
+import { Produkt, produkty } from '../products';
 import { KoszykService } from '../koszyk.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { KoszykService } from '../koszyk.service';
 })
 export class SzczegolyProduktuComponent implements OnInit {
 
-  product: Product | undefined;
+  produkt: Produkt | undefined;
 
   constructor(private route: ActivatedRoute, private koszyk: KoszykService) {}
 
@@ -21,12 +21,12 @@ export class SzczegolyProduktuComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('idProduktu'));
 
     //Znajdź odpowiadający produkt wg id
-    this.product = products.find(product => product.id === productIdFromRoute);
+    this.produkt = produkty.find(produkt => produkt.id === productIdFromRoute);
   }
   
-  dodaj(product: Product) {
-    this.koszyk.dodajDoKoszyka(product);
-    window.alert(product.name + ' został dodany do Twojego koszyka');
+  dodaj(produkt: Produkt) {
+    this.koszyk.dodajDoKoszyka(produkt);
+    window.alert(produkt.name + ' został dodany do Twojego koszyka');
   }
 
 }

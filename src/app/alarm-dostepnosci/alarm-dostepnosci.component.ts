@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Product } from '../products';
+import { Produkt } from '../products';
 
 @Component({
   selector: 'app-alarm-dostepnosci',
@@ -9,7 +9,7 @@ import { Product } from '../products';
 })
 export class AlarmDostepnosciComponent implements OnInit {
 
-  @Input() product !: Product;
+  @Input() produkt !: Produkt;
   @Output() notify = new EventEmitter();
 
   constructor() { }

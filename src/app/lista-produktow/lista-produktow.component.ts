@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { products } from '../products';
+import { produkty } from '../products';
 
 @Component({
   selector: 'app-lista-produktow',
@@ -9,7 +9,7 @@ import { products } from '../products';
 })
 export class ListaProduktowComponent {
   
-  products = products;
+  produkty = produkty;
 
   udostepnij() {
     window.alert('Produkt został udostępniony!');

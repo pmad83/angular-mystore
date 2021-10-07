@@ -1,8 +1,8 @@
 <h2>Wybierz formę dostawy</h2>
 
 <div class='shipping-item' *ngFor='let pozycja of cennik | async'>
-  <button [mat-dialog-close]="pozycja">{{ pozycja.type }}</button>
   <span>{{ pozycja.id }}</span>
+  <button [mat-dialog-close]="pozycja">{{ pozycja.type }}</button>
   <span>{{ pozycja.price | currency }}</span>
 </div>
 

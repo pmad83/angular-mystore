@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { KoszykService } from '../koszyk.service';
 import { CennikDostawComponent } from '../cennik-dostaw/cennik-dostaw.component';
@@ -10,33 +10,25 @@ import { CennikDostawComponent } from '../cennik-dostaw/cennik-dostaw.component'
   styleUrls: ['./koszyk.component.css'],
 })
 export class KoszykComponent {
-
-  id!: number;
-  type!: string;
-  deliveryCost!: number;
-
   items = this.koszyk.dajKoszyk();
   total = this.items.reduce((total, current) => total + current.price, 0);
-  valueWithDelivery = this.total + this.deliveryCost;
+  valueWithDelivery = this.total + this.koszyk.dajKosztDostawy();
 
-  constructor(public dialog: MatDialog, private koszyk: KoszykService) {}
+  constructor(public dialog: MatDialog, public koszyk: KoszykService) {}
 
   wybierzDostawce(): void {
     const dialogRef = this.dialog.open(CennikDostawComponent, {
       width: '460px',
-      height: '320px',
-      data: {id: this.id, type: this.type, price: this.deliveryCost}
+      height: '360px',
+      data: {id: this.koszyk.dostawca.id, type: this.koszyk.dostawca.type, price: this.koszyk.dostawca.price},
     });
 
-    dialogRef.afterClosed().subscribe(dostawca => {
-      this.id = dostawca.id;
-      this.type = dostawca.type;
-      this.deliveryCost = dostawca.price;
-      this.valueWithDelivery = this.total + this.deliveryCost;
-
-      console.log('Okno wyboru formy dostawy zostało zamknięte ' + dostawca.type);
-
+    dialogRef.afterClosed().subscribe((dostawca) => {
+      console.log('Okno wyboru formy dostawy zostało zamknięte');
+      if (dostawca != null) {
+        this.koszyk.ustawDostawce(dostawca);
+        this.valueWithDelivery = this.total + this.koszyk.dajKosztDostawy();
+      }
     });
   }
-
 }

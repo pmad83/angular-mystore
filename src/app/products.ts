@@ -1,4 +1,4 @@
-export interface Product {
+export interface Produkt {
   id: number;
   name: string;
   price: number;
@@ -9,7 +9,7 @@ export interface Product {
   inStock: number;
 }
 
-export const products = [
+export const produkty = [
   {
     id: 1,
     name: 'Grand Marnier Cordon Rouge Liqueur',

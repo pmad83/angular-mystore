@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from './products';
+import { Produkt } from './products';
+
+export class Dostawca {
+  id!: number;
+  type!: string;
+  price!: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class KoszykService {
 
-  items: Product[] = [];
+  items: Produkt[] = [];
+  dostawca: Dostawca = new Dostawca();
 
-  dodajDoKoszyka(product: Product) {
+  dodajDoKoszyka(product: Produkt) {
     this.items.push(product);
   }
 
@@ -24,7 +31,15 @@ export class KoszykService {
   }
 
   pobierzOplaty() {
-    return this.http.get<{id: number, type: string, price: number}[]>('/assets/cennik-dostaw.json');
+    return this.http.get<Dostawca[]>('/assets/cennik-dostaw.json');
+  }
+
+  ustawDostawce(dostawca: Dostawca) {
+    this.dostawca = dostawca;
+  }
+
+  dajKosztDostawy() {
+    return this.dostawca.price != null ? this.dostawca.price : 0;
   }
 
   constructor(private http: HttpClient) { }
